@@ -1,0 +1,193 @@
+.chatbotWrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  font-family: 'Inter', sans-serif;
+}
+
+.chatButton {
+  background-color: #5C4033; /* Nâu đất đồng bộ Melli */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(92, 64, 51, 0.4);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.chatButton:hover {
+  transform: scale(1.08);
+  background-color: #4a332a;
+}
+
+.chatWindow {
+  position: absolute;
+  bottom: 85px;
+  right: 0;
+  width: 380px;
+  height: 550px;
+  background-color: #FDF4E3; /* Kem nhạt Melli */
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(92, 64, 51, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e1d4c1;
+  transform-origin: bottom right;
+  animation: scaleUp 0.3s ease forwards;
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.header {
+  background-color: #5C4033; /* Nâu đất Melli */
+  color: #fff;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerTitle {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.closeButton:hover {
+  transform: rotate(90deg);
+}
+
+.messages {
+  flex: 1;
+  padding: 1.5rem 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background-color: #FAF8F5; /* Tone nền nhẹ làm dịu mắt */
+}
+
+.message {
+  max-width: 85%;
+  padding: 0.8rem 1.2rem;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* User message style */
+.userMsg {
+  align-self: flex-end;
+  background-color: #5C4033;
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+/* AI message style */
+.aiMsg {
+  align-self: flex-start;
+  background-color: #E8E2D2;
+  color: #333;
+  border-bottom-left-radius: 4px;
+}
+
+/* Reset margin cho the p được tạo bởi marked.js */
+.aiMsg :global(p) { margin: 0 0 0.5em 0; }
+.aiMsg :global(p:last-child) { margin: 0; }
+.aiMsg :global(a) { color: #5C4033; font-weight: 500; }
+.aiMsg :global(strong) { color: #4a332a; }
+
+.loading {
+  align-self: flex-start;
+  color: #888;
+  font-size: 0.85rem;
+  font-style: italic;
+  padding: 0.5rem 1rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+.inputArea {
+  display: flex;
+  padding: 1rem;
+  background-color: #fff;
+  border-top: 1px solid #e1d4c1;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 30px; /* Bo cong điệu đà */
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.input:focus {
+  border-color: #5C4033;
+  background-color: #fff;
+}
+
+.sendButton {
+  background-color: #FDF4E3;
+  color: #5C4033;
+  border: none;
+  margin-left: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  border-radius: 50%;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.sendButton:hover {
+  background-color: #f0e9df;
+  transform: translateX(2px);
+}
+
+@media (max-width: 480px) {
+  .chatWindow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    z-index: 1000;
+  }
+}

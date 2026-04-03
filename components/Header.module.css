@@ -1,0 +1,120 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.8rem 4rem;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+  background-color: transparent;
+}
+
+.scrolled {
+  background-color: rgba(253, 244, 227, 0.85); /* Trắng kem có độ trong suốt 85% - Glassmorphism */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.2rem 4rem;
+  box-shadow: 0 4px 30px rgba(92, 64, 51, 0.08); /* Bóng mờ màu nâu cực nhẹ */
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #5C4033; /* Nâu đất - Earth Brown */
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.navLink {
+  color: #5C4033;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #5C4033;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.navLink:hover {
+  color: #8B5A2B;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cartButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #5C4033;
+  position: relative;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.cartButton:hover {
+  transform: translateY(-2px);
+  color: #8B5A2B;
+}
+
+.badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: #9CACEB; /* Thừa hưởng màu Wedgwood Blue từ Hero tạo điểm nhấn */
+  color: white;
+  font-size: 0.75rem;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(156, 172, 235, 0.5);
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding: 1.5rem 2rem;
+  }
+  .scrolled {
+    padding: 1rem 2rem;
+  }
+  .nav {
+    display: none; /* Ẩn menu trên mobile để gắn Sidebar/Hamburger sau */
+  }
+}

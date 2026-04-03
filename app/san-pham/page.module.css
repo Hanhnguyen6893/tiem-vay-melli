@@ -1,0 +1,211 @@
+.pageContainer {
+  background-color: #FAF8F5; /* Background chung cho khối chứa sản phẩm */
+  min-height: 100vh;
+  padding: 120px 2rem 5rem; /* Padding top để né Header đã được Fix ở vị trí top */
+  font-family: 'Inter', sans-serif;
+  color: #5C4033;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #5C4033;
+  letter-spacing: 1px;
+}
+
+.layout {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  gap: 3rem;
+}
+
+/* SIDEBAR chiếm tối đa 25% */
+.sidebar {
+  width: 25%;
+  background-color: #FDF4E3; /* Kem nhạt Melli */
+  padding: 2.5rem 2rem;
+  border-radius: 30px; 
+  box-shadow: 0 4px 20px rgba(92, 64, 51, 0.05); /* Bóng mờ màu nâu */
+  height: fit-content;
+  position: sticky;
+  top: 120px; /* Cố định sidebar luôn hiển thị khi Cuộn (sticky trigger state) */
+  border: 4px solid #fff;
+}
+
+.sidebarTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed rgba(92, 64, 51, 0.3);
+  padding-bottom: 1rem;
+  color: #5C4033;
+}
+
+.filterList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.filterButton {
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  position: relative;
+}
+
+.filterButton:hover {
+  color: #8B5A2B;
+  transform: translateX(5px);
+}
+
+.filterButton.active {
+  font-weight: 700;
+  color: #5C4033;
+}
+
+.filterButton.active::before {
+  content: '✦';
+  position: absolute;
+  left: -18px;
+  color: #9CACEB; /* Dấu sao xanh Wedgwood báo đang chọn */
+}
+
+/* LIST DS SẢN PHẨM chiếm 75% */
+.productsArea {
+  width: 75%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+/* CSS CARD SẢN PHẨM HOÀI CỔ */
+.productCard {
+  background-color: #fff;
+  border-radius: 120px 120px 20px 20px; /* Khung arch mái vòm Melli */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(92, 64, 51, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 5px solid #FDF4E3;
+  display: flex;
+  flex-direction: column;
+}
+
+.productCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(92, 64, 51, 0.12);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.08);
+}
+
+.productInfo {
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.productName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #5C4033;
+}
+
+.productPrice {
+  color: #8B5A2B;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.addToCart {
+  margin-top: auto;
+  background-color: transparent;
+  border: 1px solid #5C4033;
+  color: #5C4033;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addToCart:hover {
+  background-color: #5C4033;
+  color: #FDF4E3;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 5rem 2rem;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #8B5A2B;
+  background-color: #FDF4E3;
+  border-radius: 20px;
+  border: 2px dashed #e5d5c0;
+}
+
+/* Responsive Table & Mobile */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    position: static;
+  }
+  .productsArea {
+    width: 100%;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
